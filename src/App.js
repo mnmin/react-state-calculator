@@ -6,8 +6,8 @@ import Button from "./Components/Button.js";
 function App() {
   const [firstCount, setFirstCount] = useState("0");
   const [secondCount, setSecondCount] = useState("0");
-  const [operators, setOperators] = useState("");
-  const [result, setResult] = useState("");
+  const [operators, setOperators] = useState("+");
+  const [result, setResult] = useState("0");
   let [storedResult, setStoredResult] = useState("");
 
   const defaultFirstCount = firstCount === "0";
@@ -17,23 +17,18 @@ function App() {
   const secondNumber = Number(secondCount);
   //console.log(firstNumber, SecondNumber)
 
-  const eventButtonFirstCount = (value) => (firstCount) => {
-    if (defaultFirstCount) return value.target.innerText;
-    return firstCount + value.target.innerText;
+  const onClickFirstCount = (value) => {
+    if (defaultFirstCount) {
+      return setFirstCount(value);
+    }
+    setFirstCount(firstCount + value);
   };
 
-  const clearButton = () => {
-    return "0";
-  };
-
-  const eventButtonOperator = (value) => (operators) => {
-    return value.target.innerText;
-    //return (operators = value.target.innterText);
-  };
-
-  const eventButtonSecondCount = (value) => (secondCount) => {
-    if (defaultSecondCount) return value.target.innerText;
-    return secondCount + value.target.innerText;
+  const onClickSecondCount = (value) => {
+    if (defaultSecondCount) {
+      return setSecondCount(value);
+    }
+    setSecondCount(secondCount + value);
   };
 
   const eventResult = () => {
@@ -57,69 +52,68 @@ function App() {
         <div className="numbers">
           <Button
             text={"1"}
-            onClick={(event) => {
-              setFirstCount(eventButtonFirstCount(event));
-              //console.log(event);
+            onClick={() => {
+              onClickFirstCount("1");
             }}
           />
           <Button
             text={"2"}
-            onClick={(event) => {
-              setFirstCount(eventButtonFirstCount(event));
+            onClick={() => {
+              onClickFirstCount("2");
             }}
           />
           <Button
             text={"3"}
-            onClick={(event) => {
-              setFirstCount(eventButtonFirstCount(event));
+            onClick={() => {
+              onClickFirstCount("3");
             }}
           />
           <Button
             text={"4"}
-            onClick={(event) => {
-              setFirstCount(eventButtonFirstCount(event));
+            onClick={() => {
+              onClickFirstCount("4");
             }}
           />
           <Button
             text={"5"}
-            onClick={(event) => {
-              setFirstCount(eventButtonFirstCount(event));
+            onClick={() => {
+              onClickFirstCount("5");
             }}
           />
           <Button
             text={"6"}
-            onClick={(event) => {
-              setFirstCount(eventButtonFirstCount(event));
+            onClick={() => {
+              onClickFirstCount("6");
             }}
           />
           <Button
             text={"7"}
-            onClick={(event) => {
-              setFirstCount(eventButtonFirstCount(event));
+            onClick={() => {
+              onClickFirstCount("7");
             }}
           />
           <Button
             text={"8"}
-            onClick={(event) => {
-              setFirstCount(eventButtonFirstCount(event));
+            onClick={() => {
+              onClickFirstCount("8");
             }}
           />
           <Button
             text={"9"}
-            onClick={(event) => {
-              setFirstCount(eventButtonFirstCount(event));
+            onClick={() => {
+              onClickFirstCount("9");
             }}
           />
           <Button
             text={"0"}
-            onClick={(event) => {
-              setFirstCount(eventButtonFirstCount(event));
+            onClick={() => {
+              onClickFirstCount("0");
             }}
           />
           <Button
             text={"Clear"}
             onClick={() => {
-              setFirstCount(clearButton());
+              setFirstCount("0");
             }}
           />
         </div>
@@ -130,27 +124,26 @@ function App() {
         <div className="numbers">
           <Button
             text="+"
-            onClick={(event) => {
-              setOperators(eventButtonOperator(event));
-              console.log(event);
+            onClick={() => {
+              setOperators("+");
             }}
           />
           <Button
             text="-"
-            onClick={(event) => {
-              setOperators(eventButtonOperator(event));
+            onClick={() => {
+              setOperators("-");
             }}
           />
           <Button
             text="*"
-            onClick={(event) => {
-              setOperators(eventButtonOperator(event));
+            onClick={() => {
+              setOperators("*");
             }}
           />
           <Button
             text="÷"
-            onClick={(event) => {
-              setOperators(eventButtonOperator(event));
+            onClick={() => {
+              setOperators("÷");
             }}
           />
         </div>
@@ -162,74 +155,68 @@ function App() {
         <div className="numbers">
           <Button
             text={"1"}
-            onClick={(event) => {
-              setSecondCount(eventButtonSecondCount(event));
-            }}
-          />
-          <Button
-            text={"1"}
-            onClick={(event) => {
-              setSecondCount(eventButtonSecondCount(event));
+            onClick={() => {
+              onClickSecondCount("1");
             }}
           />
           <Button
             text={"2"}
-            onClick={(event) => {
-              setSecondCount(eventButtonSecondCount(event));
+            onClick={() => {
+              onClickSecondCount("2");
             }}
           />
           <Button
             text={"3"}
-            onClick={(event) => {
-              setSecondCount(eventButtonSecondCount(event));
+            onClick={() => {
+              onClickSecondCount("3");
             }}
           />
           <Button
             text={"4"}
-            onClick={(event) => {
-              setSecondCount(eventButtonSecondCount(event));
+            onClick={() => {
+              onClickSecondCount("4");
             }}
           />
           <Button
             text={"5"}
-            onClick={(event) => {
-              setSecondCount(eventButtonSecondCount(event));
+            onClick={() => {
+              onClickSecondCount("5");
             }}
           />
           <Button
             text={"6"}
-            onClick={(event) => {
-              setSecondCount(eventButtonSecondCount(event));
+            onClick={() => {
+              onClickSecondCount("6");
             }}
           />
           <Button
             text={"7"}
-            onClick={(event) => {
-              setSecondCount(eventButtonSecondCount(event));
+            onClick={() => {
+              onClickSecondCount("7");
             }}
           />
           <Button
             text={"8"}
-            onClick={(event) => {
-              setSecondCount(eventButtonSecondCount(event));
+            onClick={() => {
+              onClickSecondCount("8");
             }}
           />
           <Button
             text={"9"}
-            onClick={(event) => {
-              setSecondCount(eventButtonSecondCount(event));
+            onClick={() => {
+              onClickSecondCount("9");
             }}
           />
           <Button
             text={"0"}
-            onClick={(event) => {
-              setSecondCount(eventButtonSecondCount(event));
+            onClick={() => {
+              onClickSecondCount("0");
             }}
           />
           <Button
             text={"Clear"}
             onClick={() => {
-              setSecondCount(clearButton());
+              setSecondCount("0");
             }}
           />
         </div>
